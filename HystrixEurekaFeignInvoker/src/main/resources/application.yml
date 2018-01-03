@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: HystrixEurekaFeignInvoker
+
+feign:
+  hystrix:
+    enabled: true
+hystrix: 
+  command: 
+    HelloClient#tohello(): 
+      execution: 
+        isolation: 
+          thread: 
+            timeoutInMilliseconds: 500
+      circuitBreaker: 
+        requestVolumeThreshold: 3
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,26 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: ZuulEurekaGateway
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    source:
+      path: /invoker/**
+      serviceId: ZuulEurekaInvoker
+    routeTest:
+      path: /routeTest/163
+      url: http://www.163.com
+    route163:
+      url: http://www.baidu.com
+    testforward:
+      path: /test/**
+      url: forward:/hhh/hello
+management:
+  security:
+    enabled: false
+    

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: HeartBeatEurekaProvider
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+    metadataMap:
+      userName: zw
+      corpName: creazy
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+logging:
+  level:
+    com.zw: DEBUG
